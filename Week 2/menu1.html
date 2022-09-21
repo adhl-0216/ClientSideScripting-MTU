@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <link href="style.css" rel="stylesheet" type="text/css" >
+	 
+   
+</head>
+<body>
+    <div id="main">
+        <div id="content">
+            <div id="menu">
+                <div style="height: 402px" align="right">
+                    <img alt="" src="images/logo.jpg" style="margin-right: 28px; margin-top: 31px">
+                </div>
+            </div>
+            <div style="width: 401px; float: left">
+                <div class="wes1">
+                </div>
+                <div class="wes2">
+                    <div style="height: 186px">
+                        <img alt="" src="images/centerfoto.jpg" width="362" height="170" style="margin-top: 16px"></div>
+                    <div style="height: 38px">
+                        <img alt="" src="images/menu.jpg" width="362" height="38"></div>
+                    <div style="margin-left: 20px; margin-top: 10px; height: 270px">
+
+                        
+                        <p>
+                            Click the buttons for a description of each pizza.</p>
+                        <form action ="">
+                        <input type="radio" name="pizzas" id="b1"                             
+                            onclick=
+                            "
+                            document.getElementById('pizzaDesc').value = 
+                            'Lots of mushrooms, black olives, bell peppers, onions, artichoke hearts, and fresh tomatoes. ';
+                            ">
+                        <label for ="b1" >Vegetarian</label><br>
+                        <input type="radio" name="pizzas" id="b2"                             
+                            onclick=
+                            "
+                            document.getElementById('pizzaDesc').value = 
+                            'Overloaded with juicy pineapple, smoked bacon, sliced ham, roasted red peppers, provolone cheese, and mozzarella cheese on a cheesy Parmesan crust.';
+                            ">
+                        <label for ="b2" >Hawaiian</label><br>
+                        <input type="radio" name="pizzas" id="b3"                             
+                            onclick=
+                            "
+                            document.getElementById('pizzaDesc').value = 
+                            'Loads of pepperoni, savory Italian sausage, smoked bacon, hamburger, mushrooms, and extra cheese.';
+                            ">
+                        <label for = "b3">Meat Lovers</label><br>
+                        <input type="radio" name="pizzas" id="b4"
+                            onclick=
+                            "
+                            document.getElementById('pizzaDesc').value = 
+                            'An irresistible combination of pepperoni, ham, spicy Italian sausage, fresh-sliced onions and green peppers, gourmet baby portabella mushrooms, and ripe black olives.';
+                            ">
+                        <label for="b4">The Works</label><br>
+                        <input type="radio" name="pizzas" id="b5" 
+                            onclick=
+                            "
+                            document.getElementById('pizzaDesc').value = 
+                            'Thin-crust pizza with a four-cheese blend of mozzarella, Parmesan, Romano, and Asiago, along with our special seasoning.';
+                            ">
+                        <label for ="b5">Four Cheese</label><br><br>
+                        <textarea style="background-color:Transparent; border:none; overflow:hidden; font:10px Tahoma;resize: none; color:#3F3F3F;"
+                            id="pizzaDesc"
+                            rows='5'
+                            cols='64'>
+                        </textarea>
+                        
+                    </div>
+                </div>
+                <div class="wes3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="CR" align="center">
+        &copy; All rights reserved. Don's Pizza. 2010.</div>
+</body>
+</html>
