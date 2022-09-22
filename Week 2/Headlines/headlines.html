@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>News Items</title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+    <script src="newsitems.js">
+    </script>
+    <h1>News Items</h1>
+    <label for="headlines">Choose a headline:</label>
+    <select name="headlines" id="headlines">
+      <option value="news1" 
+        onclick="document.getElementById('content').value = newsItem1;">News 1</option>
+      <option value="news2"        
+        onclick="document.getElementById('content').value = newsItem2;">News 2</option>
+      <option value="news3"
+        onclick="document.getElementById('content').value = newsItem3;">News 3</option>
+      <option value="news4"
+        onclick="document.getElementById('content').value = newsItem4;">News 4</option>
+      <option value="news5"
+        onclick="document.getElementById('content').value = newsItem5;">News 5</option>
+    </select>
+    <br><br>
+    <textarea id="content"
+    style="background-color:Transparent; border:none; overflow:hidden; font:16px Tahoma;resize: none; color:#3F3F3F;"
+    rows="5"
+    cols="96"
+    readonly></textarea>
+
+  </body>
+</html>
