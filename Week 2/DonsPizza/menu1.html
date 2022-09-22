@@ -8,6 +8,13 @@
    
 </head>
 <body>
+    <script>
+        let vegan = "Lots of mushrooms, black olives, bell peppers, onions, artichoke hearts, and fresh tomatoes. "
+        let hawaiian = "Overloaded with juicy pineapple, smoked bacon, sliced ham, roasted red peppers, provolone cheese, and mozzarella cheese on a cheesy Parmesan crust."
+        let meatLover = "Loads of pepperoni, savory Italian sausage, smoked bacon, hamburger, mushrooms, and extra cheese."
+        let theWorks = "An irresistible combination of pepperoni, ham, spicy Italian sausage, fresh-sliced onions and green peppers, gourmet baby portabella mushrooms, and ripe black olives."
+        let fourCheese = "Thin-crust pizza with a four-cheese blend of mozzarella, Parmesan, Romano, and Asiago, along with our special seasoning."
+    </script>
     <div id="main">
         <div id="content">
             <div id="menu">
@@ -33,37 +40,32 @@
                             <input type="radio" name="pizzas" id="b1"
                                 onclick=
                                 "
-                                document.getElementById('pizzaDesc').value =
-                                'Lots of mushrooms, black olives, bell peppers, onions, artichoke hearts, and fresh tomatoes. ';
+                                document.getElementById('pizzaDesc').value = vegan;
                                 ">
                             <label for ="b1" >Vegetarian</label><br>
                             <input type="radio" name="pizzas" id="b2"
                                 onclick=
                                 "
-                                document.getElementById('pizzaDesc').value =
-                                'Overloaded with juicy pineapple, smoked bacon, sliced ham, roasted red peppers, provolone cheese, and mozzarella cheese on a cheesy Parmesan crust.';
+                                document.getElementById('pizzaDesc').value = hawaiian;
                                 ">
                             <label for ="b2" >Hawaiian</label><br>
                             <input type="radio" name="pizzas" id="b3"
                                 onclick=
                                 "
-                                document.getElementById('pizzaDesc').value =
-                                'Loads of pepperoni, savory Italian sausage, smoked bacon, hamburger, mushrooms, and extra cheese.';
+                                document.getElementById('pizzaDesc').value = meatLover;
                                 ">
                             <label for = "b3">Meat Lovers</label><br>
                             <input type="radio" name="pizzas" id="b4"
                                 onclick=
                                 "
-                                document.getElementById('pizzaDesc').value =
-                                'An irresistible combination of pepperoni, ham, spicy Italian sausage, fresh-sliced onions and green peppers, gourmet baby portabella mushrooms, and ripe black olives.';
-                                ">
-                            <label for="b4">The Works</label><br>
+                                document.getElementById('pizzaDesc').value = theWorks;
+                                "
+                            <label for="b4"> The Works</label><br>
                             <input type="radio" name="pizzas" id="b5"
                                 onclick=
                                 "
-                                document.getElementById('pizzaDesc').value =
-                                'Thin-crust pizza with a four-cheese blend of mozzarella, Parmesan, Romano, and Asiago, along with our special seasoning.';
-                                ">
+                                document.getElementById('pizzaDesc').value = fourCheese;
+                                "
                             <label for ="b5">Four Cheese</label><br><br>
                             <label for="pizzaDesc"><u>Description</u> </label><br><br>
                             <textarea style="background-color:Transparent; border:none; overflow:hidden; font:10px Tahoma;resize: none; color:#3F3F3F;"

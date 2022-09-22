@@ -6,4 +6,4 @@ let newsItem3 = "(eWeek.com) - Apple is close to hitting 1 billion downloads fro
 
 let newsItem4 = "ATLANTA (AP) - Chipper Jones drove in two runs, including a tiebreaking single, and the Atlanta Braves beat Washington 8-5 on Sunday to hand the Nationals their sixth straight loss to start the season. http://www.newsvine.com/_news/2009/04/11/2667835-jones-braves-beat-winless-nationals-8-5?category=sports";
 
-let newsItem5 = "ATLANTA (AP) - The Washington Nationals would like a restart. The Atlanta Braves just want to keep the winning pace they’ve set during the first week of the season. http://sports.yahoo.com/mlb/recap?gid=290412115";
+let newsItem5 = "ATLANTA (AP) - The Washington Nationals would like a restart. The Atlanta Braves just want to keep the winning pace they've set during the first week of the season. http://sports.yahoo.com/mlb/recap?gid=290412115";

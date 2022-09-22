@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+    <table>
+        <tr>
+            <td>
+              <form>
+                <input type="radio" id="r1" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'argentina.jpg';"> 
+                <label for="r1">Argentina</label><br>
+                
+                <input type="radio" id="r2" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'australia.jpg';">
+                <label for="r2">Australia</label><br>     
+                           
+                <input type="radio" id="r3" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'bolivia.jpg';"> 
+                <label for="r3">Bolivia</label><br>
+                                
+                <input type="radio" id="r4" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'cuba.jpg';"> 
+                <label for="r4">Cuba</label><br>
+                                
+                <input type="radio" id="r5" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'finland.jpg';"> 
+                <label for="r5">Finland</label><br>
+                                
+                <input type="radio" id="r6" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'france.jpg';"> 
+                <label for="r6">France</label><br>
+                                
+                <input type="radio" id="r7" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'italy.jpg';"> 
+                <label for="r7">Italy</label><br>
+                                
+                <input type="radio" id="r8" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'peru.jpg';"> 
+                <label for="r8">Peru</label><br>
+                                
+                <input type="radio" id="r9" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'syria.jpg';"> 
+                <label for="r9">Syria</label><br>     
+                            
+                <input type="radio" id="r10" name="flags" 
+                    onclick="document.getElementById('flagImg').src = 'tunisia.jpg';"> 
+                <label for="r10">Tunisia</label><br>              
+              </form>
+            </td>
+            <td>
+                <img id="flagImg" src="">
+            </td>
+          </tr>
+    </table>
+  </body>
 </html>
