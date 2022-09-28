@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='cs'>  
+    <head>    
+        <title>
+        </title>    
+        <meta charset='utf-8'>    
+        <meta name='description' content=''>    
+        <meta name='keywords' content=''>    
+        <meta name='author' content=''>    
+        <meta name='robots' content='all'>    
+        <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->    
+        <link href='/favicon.png' rel='shortcut icon' type='image/png'>  
+    </head>  
+    <body>      
+<script>
+          function getCelcius(fTemp){
+            let cTemp;
+            cTemp = (fTemp-32) *(5/9);
+            return cTemp;
+        };
+            </script>  
+            
+           <h1>Farenheit to Celcius Calculator</h1>  
+        <form action="">         
+        Enter Farenheit 
+            <input type="text" id="F" value="0"> <br>
+            <textarea id='result' style="background-color:Transparent; border:none; overflow:hidden; font:16px Tahoma;resize: none; color:#3F3F3F;" readonly></textarea>
+            <input type="button" id="btn"      
+            onclick=     
+            "               
+            document.getElementById('result').value =((Number(document.getElementById('F').value) + 'F is ' + getCelcius(Number(document.getElementById('F').value)) + 'C'));     
+            "     value="Calculate">    
+        </form>  
+    </body>
+</html>
