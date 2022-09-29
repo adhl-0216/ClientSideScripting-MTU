@@ -4,18 +4,40 @@
     <meta charset="UTF-8">
     <title>Exercise 2</title>
 </head>
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>
 <body>
     <script>
-
+        function calcBMI(pounds, inches){
+            return Number(pounds*703/inches**2).toFixed();
+        }
     </script>
     <h1>Body Mass Index (BMI) Calculator</h1>
     <form action="">
-        <label for="pounds">Weight in Pounds: </label>
-        <input type="text" id="pounds">
-        <label for="inches">Height in Inches: </label>
-        <input type="text" id="inches">
-        <label for="BMI">BMI: </label>
-        <input type="text" id="BMI">
+        <table>
+            <tr>
+                <td><label for="pounds">Weight in Pounds: </label></td>
+                <td><input type="text" id="pounds"><br></td>
+            </tr>
+            <tr>
+                <td><label for="inches">Height in Inches: </label></td>
+                <td><input type="text" id="inches"><br></td>
+            </tr>
+            <tr>
+                <td><label for="BMI">BMI: </label></td>
+                <td><input type="text" id="BMI"><br></td>
+            </tr>
+        </table><br>
+        <input type="button" id="calc" value="Calculate"
+               onclick="
+               document.getElementById('BMI').value =
+                calcBMI(
+                   Number(document.getElementById('pounds').value),
+                   Number(document.getElementById('inches').value)
+                   )">
     </form>
 </body>
 </html>

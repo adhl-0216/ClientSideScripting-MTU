@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<script>
+  function summation(n1, n2){return n1+n2}
+  function subtraction(n1, n2){return Math.abs(n1-n2)}
+  function multiplication(n1, n2){return n1*n2}
+  function division(n1, n2){return (n1/n2).toFixed(3)}
+  function modulo(n1, n2){return n1%n2}
+</script>
+<body>
+<h1>Simple Calculator</h1>
+<form action="">
+  <table>
+    <tr>
+      <td><label for="t1">Number 1: </label></td>
+      <td><input type="text" id="t1"><br></td>
+    </tr>
+    <tr>
+      <td><label for="t2">Number 2: </label></td>
+      <td><input type="text" id="t2"><br></td>
+    </tr>
+    <tr>
+      <td><label for="res">Get Result: </label></td>
+      <td><input type="text" id="res" readonly><br></td>
+    </tr>
+  </table><br>
+
+  <input type="button" id="SUM" value="SUM"
+         onclick="
+               document.getElementById('res').value =
+                summation(
+                   Number(document.getElementById('t1').value),
+                   Number(document.getElementById('t2').value)
+                   )">
+
+  <input type="button" id="SUB" value="SUB"
+         onclick="
+               document.getElementById('res').value =
+                subtraction(
+                   Number(document.getElementById('t1').value),
+                   Number(document.getElementById('t2').value)
+                   )">
+
+  <input type="button" id="MUL" value="MUL"
+         onclick="
+               document.getElementById('res').value =
+                multiplication(
+                   Number(document.getElementById('t1').value),
+                   Number(document.getElementById('t2').value)
+                   )">
+
+  <input type="button" id="DIV" value="DIV"
+         onclick="
+               document.getElementById('res').value =
+                division(
+                   Number(document.getElementById('t1').value),
+                   Number(document.getElementById('t2').value)
+                   )">
+
+  <input type="button" id="MOD" value="MOD"
+         onclick="
+               document.getElementById('res').value =
+                modulo(
+                   Number(document.getElementById('t1').value),
+                   Number(document.getElementById('t2').value)
+                   )">
+</form>
+
+</body>
+</html>

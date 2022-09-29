@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='cs'>
   <head>
-    <title></title>
+    <title>Exercise 1</title>
     <meta charset='utf-8'>
     <meta name='description' content=''>
     <meta name='keywords' content=''>
@@ -12,22 +12,24 @@
   <body>
     <script>
       function calcShipping(p){
-            let total = 0;
+            let total;
             (p<=25)? total = 1.50 + p: total = p*1.1;
-            alert('\u20AC' + total);
+            alert('\u20AC' + total.toFixed(2));
             return total.toFixed(2);
-      };
+      }
     </script>
     <h1>Shipping Cost Calculator</h1>
     <form action="">
-        <label for="purchasePrice">Purchase Price</label>
+        <label for="purchasePrice">Purchase Price (&euro;)</label>
         <input type="text" id="purchasePrice">
         <input type="button" id="btnCalc" onclick=
         "
         document.getElementById('totalCost').value = '\u20AC' + calcShipping(Number(document.getElementById('purchasePrice').value));
         " 
         value="Calculate">
-        <br><br><input type="text" id="totalCost">
+        <br><br>
+        <label for="totalCost">Total Cost (&euro;)</label><br>
+        <input type="text" id="totalCost">
 
         
     </form>

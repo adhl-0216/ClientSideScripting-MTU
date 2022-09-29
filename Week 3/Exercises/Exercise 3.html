@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 3</title>
+</head>
+<script>
+  function calcPay(hours, rate){
+    let pay;
+    (hours >= 60)? pay = 60 * rate: pay = hours*rate;
+    return pay;
+  }
+</script>
+<body>
+<h1>Stingy Boss Calculator</h1>
+<form action="">
+  <table>
+    <tr>
+      <td><label for="t1">Hour(s) : </label></td>
+      <td><input type="text" id="t1"><br></td>
+    </tr>
+    <tr>
+      <td><label for="t2">Rate (&euro;/hour) : </label></td>
+      <td><input type="text" id="t2"><br></td>
+    </tr>
+    <tr>
+      <td><label for="res">Pay (&euro;) : </label></td>
+      <td><input type="text" id="res" readonly><br></td>
+    </tr>
+  </table><br>
+  <input type="button" id="calc" value="Calculate"
+         onclick="
+               document.getElementById('res').value =
+                calcPay(
+                   Number(document.getElementById('t1').value),
+                   Number(document.getElementById('t2').value)
+                   )">
+</form>
+
+</body>
+</html>
