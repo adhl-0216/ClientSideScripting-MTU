@@ -13,25 +13,26 @@
     </head>  
     <body>      
 <script>
-          function getCelcius(fTemp){
+          function getCelcius(){
             let cTemp;
-            cTemp = (fTemp-32) *(5/9);
-            return cTemp.toFixed(1);
+            cTemp = (Number(document.getElementById('F').value)-32) *(5/9);
+            
+            document.getElementById('result').value =
+            Number(document.getElementById('F').value) + 'F is ' + cTemp.toFixed(1) + 'C';
+            
         };
             </script>  
             
-           <h1>Farenheit to Celcius Calculator, but BETTER</h1>  
+           <h1>Farenheit to Celcius Calculator</h1>  
         <form action="">         
         Enter Farenheit 
             <input type="text" id="F" value="0"> <br>
-            <input type="button" id="btn"      
-            onclick=     
-            "               
-            document.getElementById('result').value =((Number(document.getElementById('F').value) + 'F is ' + getCelcius(Number(document.getElementById('F').value)) + 'C'));     
-            "     value="Calculate"><br><br>
+            <input type="button" id="btn" onclick="getCelcius()" value="Calculate"> <br>  <br>
             <textarea id='result' style="background-color:Transparent; border:; overflow:hidden; font:16px Tahoma;resize: none; color:#3F3F3F;" cols='32' readonly>
             Use metric, nerds
-            </textarea>     
+            </textarea> 
+            
+            
         </form>  
     </body>
 </html>
