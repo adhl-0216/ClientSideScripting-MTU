@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>inRange func</title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+    <script>
+    function inRange(x,y){
+        document.write(`[`);
+        while (x<y-1){
+            x++;
+            (x!=y-1)?document.write(`${x},`):document.write(`${x}`);;
+        }
+        document.write(`]`);
+    }
+    
+    x = prompt("Please enter the lower limit: ");
+    y = prompt("Please enter the upper limit: ");
+    
+    inRange(x,y);
+    </script>
+  </body>
+</html>

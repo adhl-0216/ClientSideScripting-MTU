@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>Art Supply Store</title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <style>
+  table, th, td, th {
+  border: 1px solid;
+}
+  </style>
+  <body>
+  <h1><u><i>Magasin de fournitures artistiques</i></u></h1>
+  <script>
+    let num = prompt("How many pencil(s) would you like to purchase?");
+    let i = 0;
+    document.write(`<table><th>Pencil(s)</th><th>&euro;</th>`);
+    while (i < num ){
+    ++i;
+        document.write(`<tr><td>${i}</td> <td>${i*5}</td><tr>`);
+    }
+    document.write(`</table>`);
+  </script>
+
+  </body>
+</html>

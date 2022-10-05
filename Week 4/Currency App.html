@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>Currency App</title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+    <script>
+        let input = prompt("Please enter a country: ");
+        let output;
+        switch(input){
+            case "Australia": 
+                output = "AUD Australian Dollar";
+                break;
+            case "Ireland": 
+                output = "Euro";
+                break;
+            case "England": 
+                output = "Sterling";
+                break;
+            case "China": 
+                output = "Chinese yuan renminbi (RMB)";
+                break;
+            case "Egypt": 
+                output = "EGP Egyptian pound";
+                break;
+            case "Iceland":
+                output = "ISK Icelandic krona";
+                break;
+            default: 
+                output = "Not Known";
+
+        };
+        alert(output);
+
+    </script>
+  </body>
+</html>

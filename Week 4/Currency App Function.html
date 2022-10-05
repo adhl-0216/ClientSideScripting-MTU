@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>Currency App</title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+  <h1>Find out which country has what currencies!</h1>
+    <form>
+        <label for="input">Please enter a country name: </label>
+        <input type="text" id="input">
+        <input type="button" value="Check currency" onclick='document.getElementById("output").value = currency(document.getElementById("input").value);'><br><br>
+        <label for="output">The currency of the country is: </label>
+        <input type="text" id="output" size="32" readonly><br>
+    </form>
+    <script>
+        function currency(input){
+        
+        let output;
+        
+        switch(input){
+            case "Australia": 
+                output = "AUD Australian Dollar";
+                break;
+            case "Ireland": 
+                output = "Euro";
+                break;
+            case "England": 
+                output = "Sterling";
+                break;
+            case "China": 
+                output = "Chinese yuan renminbi (RMB)";
+                break;
+            case "Egypt": 
+                output = "EGP Egyptian pound";
+                break;
+            case "Iceland":
+                output = "ISK Icelandic krona";
+                break;
+            default: 
+                output = "Not Known";
+
+            }
+            return output;
+        };
+        
+        
+
+    </script>
+  </body>
+</html>
