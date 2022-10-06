@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+  
+  <script>
+    //q1
+    let arr1 = [];
+    for(let i = 1;i <= 100; ++i){
+        arr1.push(i);
+    }
+    document.write(arr1.join(", "));
+    
+    //q2
+        document.write("<br><br>");
+    let min = Number.POSITIVE_INFINITY;
+    let max = Number.NEGATIVE_INFINITY;
+    function minMax(num){
+        if(num<min) min = num;
+        if(num>max) max = num;
+    }
+    let arr2 = new Array(5);
+    for(let i = 0; i<5; ++i){
+        arr2[i] = parseInt(prompt(`Enter a number for arr2: `));
+    }
+    arr2.forEach(minMax);
+    document.write(arr2.join(", "));
+            document.write("<br><br>");
+    document.write(`${min}, ${max}`);
+    
+    //q3
+        document.write("<br><br>");
+    let arr3 =["Red","Green", "White", "Black"];
+    document.write(arr3.join(" and "));
+    
+    //q4
+        document.write("<br><br>");
+    function summation(arr){
+        let sum = 0;
+        for(let i = 0; i < arr.length; i++){
+            sum+=arr[i];
+        }
+        return sum;
+    }
+    function multiplication(arr){
+        let mult = 1;
+        for(let i = 0; i < arr.length; i++){
+            mult*=arr[i];
+        }
+        return mult;
+        
+    }    
+    let arr4 = [];
+    for(let i = 0; i<5; ++i){
+       arr4[i] = parseInt(prompt(`Enter a number for arr4: `));
+    }
+    document.write(arr4.join(", "));
+            document.write("<br><br>");
+    document.write(summation(arr4));
+            document.write("<br><br>");
+    document.write(multiplication(arr4));
+    
+  </script>
+
+  </body>
+</html>

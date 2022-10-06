@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Identifying A Leap Year</title>
+    <title>Is This A Leap Year?</title>
 </head>
 <body>
+<h1>Identifying A Leap Year</h1>
+<form>
+<label for="input">Enter a year in YYYY format: </label>
+<input type="text" id="input"><br>
+<input type="button" value="Try It!" onclick="alert(idtfyLeapYr(parseInt(document.getElementById('input').value)))">
+</form> 
+    <script>
+    
+    function idtfyLeapYr(year){
+      if(year%4 === 0){
+      return year + " is a leap year!"
+      } else if(year%100 === 0){
+        return year + " is not a leap year.";
+      } else if(year%100 === 0 && year%400 === 0){
+        return year + " is a leap year!";
+      } else return year + " is not a leap year."
+    }
 
+    </script>
 </body>
 </html>
