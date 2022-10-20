@@ -8,25 +8,27 @@
     <meta name='author' content=''>
     <meta name='robots' content='all'>
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
-    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
   </head>
+  <style>
+  </style>
   <script>
-    function showTooltip(e){
-        document.getElementById("form").innerHTML +=`<p readonly style="border: 1px solid red">Enter your First Name here. </p>`;
+    function showTooltip(str,i){
+        let div = document.getElementsByTagName("div")[i];
+        div.innerHTML += `<input readonly id="tt" style="border: 1px solid red" value="${str}" size="${str.length}">`;
     }
-    function hideTooltip(e){
-        document.getElementsByTagName("p").innerHTML = "";
+    function hideTooltip(){
+        let tt = document.getElementById("tt");
+        tt.remove();
     }
   </script>
   <body>
     <h1>Accessing Elements in the DOM</h1>
     
     <form>
-        <label id="lbl1" for="fname"> First Name <b onmouseover="showTooltip(document.getElementById('fname'))" onmouseout="hideTooltip(document.getElementById('fname'))">**</b>: </label><br>
-        
-        <input id = "fname"><p></p><br>
-        <label for="lname"> Last Name <b onmouseover="showTooltip(document.getElementById('lname'))" onmouseout="hideTooltip(document.getElementById('lname'))">**</b>: </label><br>
-        <input id = "lname"><br>
+        <label id="lbl1" for="fname"> First Name <b onmouseover="showTooltip(`Enter Your First Name Here.`,0)" onmouseout="hideTooltip()">**</b>: </label><br>
+        <div style="border: transparent"><input id = "fname"></div>
+        <label for="lname"> Last Name <b onmouseover="showTooltip(`Enter Your Last Name Here.`,1)" onmouseout="hideTooltip()">**</b>: </label><br>
+        <div style="border: transparent"><input id = "lname"></div>
         <button>Submit</button>
     </form>
   </body>
