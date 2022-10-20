@@ -14,11 +14,10 @@
   <script>
     function showTooltip(str,i){
         let div = document.getElementsByTagName("div")[i];
-        div.innerHTML += `<input readonly id="tt" style="border: 1px solid red" value="${str}" size="${str.length}">`;
+        div.innerHTML += `<input readonly id="tt" style="border: 1px solid red; margin-left:20px" value="${str}" size="${str.length}">`;
     }
     function hideTooltip(){
-        let tt = document.getElementById("tt");
-        tt.remove();
+        document.getElementById("tt").remove();
     }
   </script>
   <body>
