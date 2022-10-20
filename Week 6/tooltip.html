@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <script>
+    function showTooltip(e){
+        document.getElementById("form").innerHTML +=`<p readonly style="border: 1px solid red">Enter your First Name here. </p>`;
+    }
+    function hideTooltip(e){
+        document.getElementsByTagName("p").innerHTML = "";
+    }
+  </script>
+  <body>
+    <h1>Accessing Elements in the DOM</h1>
+    
+    <form>
+        <label id="lbl1" for="fname"> First Name <b onmouseover="showTooltip(document.getElementById('fname'))" onmouseout="hideTooltip(document.getElementById('fname'))">**</b>: </label><br>
+        
+        <input id = "fname"><p></p><br>
+        <label for="lname"> Last Name <b onmouseover="showTooltip(document.getElementById('lname'))" onmouseout="hideTooltip(document.getElementById('lname'))">**</b>: </label><br>
+        <input id = "lname"><br>
+        <button>Submit</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <script>
+    function highlight(e) {
+        if (e != null){
+            for(i = 0; i < e.length; i++){
+                e[i].style.color ="pink";
+            }
+        }
+    }
+    
+    function revert(e) {
+      if (e != null){
+            for(i = 0; i < e.length; i++){ 
+                e[i].style.color ="initial";
+         }
+        }
+    }
+  </script>
+  <body>
+  <p onmouseover="highlight(document.getElementsByTagName('strong'))" onmouseout="revert(document.querySelectorAll('strong'))" style="color: blue"><u>(On click, highlight)</u></p>
+    <p><strong>We</strong> have just started <strong>this</strong> section for the users (<strong>beginners</strong> to intermediate) who <strong>want</strong> to work with <strong>various</strong> JavaScript <strong>problems</strong> and write scripts online to <strong>test</strong> their JavaScript <strong>skill</strong>. </p>
+  </body>
+</html>

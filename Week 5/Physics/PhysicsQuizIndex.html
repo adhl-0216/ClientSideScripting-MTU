@@ -1,0 +1,155 @@
+<!doctype html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Get And Style All Tags</title>
+   
+    <link rel="stylesheet" type="text/css" href="physics.css" />
+
+    
+
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0" width="752" class="Top">
+        <tr>
+            <td>
+                <img src="images/TopRow1.jpg" width="750" height="183" alt="Visual formatting element" />
+            </td>
+        </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="752" class="Middle">
+        <tr>
+            <td valign="top">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <img src="images/Back6.jpg" width="27" height="20" alt="Visual formatting element" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="VSeparatorBack" valign="top"></td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <img src="images/HeaderAboutUs.jpg" width="349" height="20" alt="Visual formatting element" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ImageBack">
+                            
+                            <p> <strong>1. How many natural elements are there?</strong></p>
+                            <p>
+                            <input type="radio" name="question1" value="a" 
+                            onclick="recordAnswers(1,'a')" >92<br>
+                            <!-- correct answer -->
+                            <input type="radio" name="question1" value="b" 
+                            onclick="recordAnswers(1,'b')" >113<br>
+                            <input type="radio" name="question1" value="c" 
+                            onclick="recordAnswers(1,'c')" >103<br>
+                            <input type="radio" name="question1" value="d" 
+                            onclick="recordAnswers(1,'d')" >88
+                            </p>
+                            
+                            <p><strong>2. If one kg of air is compressed from 1 m3 to 0.5 m3, which 
+                            of the following statements is true?</strong></p>
+                            <p>
+                            <input type="radio" name="question2" value="a" 
+                            onclick="recordAnswers(2,'a')" >The density is halved.<br>
+                            <input type="radio" name="question2" value="b" 
+                            onclick="recordAnswers(2,'b')" >The mass is halved.<br>
+                            <input type="radio" name="question2" value="c" 
+                            onclick="recordAnswers(2,'c')" >The density is doubled.<br>
+                            <!-- correct answer -->
+                            <input type="radio" name="question2" value="d" 
+                            onclick="recordAnswers(2,'d')" >The mass is doubled.
+                            </p>
+                              
+                            <p><strong>3. What is the acceleration due to gravity?</strong></p>
+                            <p>
+                            <input type="radio" name="question3" value="a" 
+                            onclick="recordAnswers(3,'a')" >980 m/s2<br>
+                            <input type="radio" name="question3" value="b" 
+                            onclick="recordAnswers(3,'b')" >9.8 m/s2<br>
+                            <!-- correct answer -->
+                            <input type="radio" name="question3" value="c" 
+                            onclick="recordAnswers(3,'c')" >98 m/s2<br>
+                            <input type="radio" name="question3" value="d" 
+                            onclick="recordAnswers(3,'d')" >0.98 m/s2
+                            </p>
+                            
+                            <p><strong>4. What is the SI unit of density?</strong></p>
+                            <p>
+                            <input type="radio" name="question4" value="a" 
+                            onclick="recordAnswers(4,'a')" >cm3/g<br>
+                            <input type="radio" name="question4" value="b" 
+                            onclick="recordAnswers(4,'b')" >m3/kg<br>
+                            <input type="radio" name="question4" value="c" 
+                            onclick="recordAnswers(4,'c')" >kg/m3<br>
+                            <!-- correct answer -->
+                            <input type="radio" name="question4" value="d" 
+                            onclick="recordAnswers(4,'d')" >g/cm3
+                            </p>
+                            
+                            <p><strong>5. Which of these has the highest density?</strong></p>
+                            <p>
+                            <input type="radio" name="question5" value="a" 
+                            onclick="recordAnswers(5,'a')" >Lead<br>
+                            <input type="radio" name="question5" value="b" 
+                            onclick="recordAnswers(5,'b')" >Water<br>
+                            <input type="radio" name="question5" value="c" 
+                            onclick="recordAnswers(5,'c')" >Mercury<br>
+                            <input type="radio" name="question5" value="d" 
+                            onclick="recordAnswers(5,'d')" >Tungsten
+                            <!-- correct answer -->
+                            </p>
+                            
+                            <p>
+                            <input type="button" value="Score" onclick="scoreQuiz();">
+                            <input type="text" id="score" size="40" style="color: white; borderstyle: none; border-color: inherit; border-width: medium; 
+                            background-color: Transparent" text="0">
+                            </p>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top" class="Color1">
+                <img src="images/Template069-Sliced_04.jpg" width="374" height="385" alt="Visual formatting element" />
+            </td>
+        </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="752" class="Bottom">
+        <tr>
+            <td align="right" class="Color1">
+                <img src="images/Back5.gif" width="480" height="32" alt="Visual formatting element" />
+            </td>
+        </tr>
+    </table>
+
+<script>
+    let answers = [];
+    let correctAnswers = ["a","c","b","c","d"];
+    console.log("Correct Answers: " + correctAnswers);
+    function recordAnswers(question, answer) {
+        answers[question - 1] = answer; 
+    }
+    
+    console.log(answers);
+    
+    function scoreQuiz() {
+        let totalCorrect = 0;
+        for (let count = 0; count < correctAnswers.length; count++) {
+            if (answers[count] == correctAnswers[count])++totalCorrect;
+        }
+        document.getElementById('score').value = `You scored ${totalCorrect} out of 5 answers correctly!`;
+    }
+
+
+</script>
+
+</body>
+</html>

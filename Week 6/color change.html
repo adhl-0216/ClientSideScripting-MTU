@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <script>
+    function chgBgColor(e){
+        e.style.backgroundColor = "green";
+    }
+  </script>
+  <body>
+    <p id="txt" style="border: 1px solid blue" onclick="chgBgColor(this)">Click to color</p>
+    <button onclick="document.getElementById('txt').style.backgroundColor = 'initial'">Reset</button>
+  </body>
+</html>

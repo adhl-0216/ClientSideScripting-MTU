@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+
+  </body>
+  <script>
+    let words = ["GoRilLa", "mOnKe", "bOnObO", "baBoOn", "PriMatE"];
+    let guess = [];
+    let ans = words[Math.floor(Math.random()*words.length)];
+    let score = ans.length;
+    let c;
+    
+    let attempts = 12;
+    console.log(ans)
+    for (i = 0; i<ans.length; i++ ){
+        guess[i] = "_";
+    }
+    
+    console.log(guess.join(" "));
+    
+    for (c = 0; c < attempts; c++){
+      let letter = prompt(`Enter a letter:  ${guess.join(" ")}`);
+      
+      
+      if(letter == null){
+        break;
+      }else if(letter.length>1){
+        alert(`Enter ONE LETTER ONLY u ${ans}`);
+      }else if (!isNaN(letter)){
+        alert(`Enter a LETTER not NUMBER u ${ans}`);
+      }else {
+        for (i = 0; i<ans.length; i++ ){
+            if (letter.toLowerCase() == ans[i].toLowerCase()){
+                guess[i] = ans[i];
+                score--; 
+            }
+        }
+             if (score == 0)break;
+            alert(`${attempts - c - 1 } guesses left~`);
+            console.log(guess.join(" "));
+        } 
+
+      }
+    
+if (score == 0){
+  if((attempts - c - 1)>(attempts/2)){
+  alert(`Great success u ${ans.toLowerCase()}, the word is indeed "${ans}"
+  You have ${attempts - c - 1} guesses remaining, not bad I guess`);
+  }else if((attempts - c - 1) > 2) {
+  alert(`Great success u ${ans.toLowerCase()}, the word is indeed "${ans}"
+  You have ${attempts - c - 1} guesses remaining, that's meh`);
+  }
+  else alert(`Great success u ${ans.toLowerCase()}, the word is indeed "${ans}"
+  You have ${attempts - c - 1} guesses remaining, that's TRASH`);
+    
+    }else alert(`Shame on u, u ${ans.toLowerCase()}`);
+  </script>
+</html>
