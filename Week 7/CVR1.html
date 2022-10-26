@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advertisement</title>
+</head>
+<style>
+    input {
+        border: transparent;
+        columns: auto;
+    }
+</style>
+<script>
+    function startAdPage() {
+            let chgAd = setInterval("changeAd()",5000);
+            let timer = setInterval("startCountdown()",1000)
+    }
+
+    let img = ["cvb1.gif","cvb2.gif","cvb3.gif"];
+    let i = 0;
+    function changeAd(){
+        if (i < img.length+1) {
+            document.getElementsByTagName("img")[0].src = img[++i];
+        }
+    }
+
+    let s = 15;
+    function startCountdown(){
+        if (s > 0) {
+            s--;
+            document.getElementById("s").value = s;
+            if (s === 1){
+                location.assign("CVR2.html");
+            }
+        }
+    }
+</script>
+<body onload="startAdPage()">
+
+<table>
+    <tr>
+        <td><img src="cvb1.gif" alt="This is an ad"></td>
+        <td>
+            <p>Advertisement</p>
+            <p>The Central Valley Realtors home page will be displayed in <input readonly type="text" id="s" value="15" size="2">seconds</p>
+            <p><a href="CVR2.html" >Skip Advertisement</a></p>
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>
