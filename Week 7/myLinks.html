@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Favorite Links</title>
+</head>
+<script>
+  function openInNewTab(link){
+    if (document.getElementById("tick").checked === true){
+      window.open(link.href);
+      return false;
+    }else return true;
+  }
+</script>
+<body>
+<h1>My Favourite Links</h1>
+<form>
+  <label for="tick">Check the box to open in new tab</label><input id="tick" type="checkbox"><br>
+  <a href="https://www.google.com" onclick="return openInNewTab(this)">Google</a><br>
+  <a href="https://www.ittralee.ie/en/" onclick="return openInNewTab(this)">MTU</a><br>
+  <a href="https://www.youtube.com" onclick="return openInNewTab(this)">YouTube</a><br>
+</form>
+</body>
+</html>
