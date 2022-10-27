@@ -8,7 +8,6 @@
     <meta name='author' content=''>
     <meta name='robots' content='all'>
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
-    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
   </head>
   <body>
 
@@ -40,19 +39,19 @@
         alert(`Enter a LETTER not NUMBER u ${ans}`);
       }else {
         for (i = 0; i<ans.length; i++ ){
-            if (letter.toLowerCase() == ans[i].toLowerCase()){
+            if (letter.toLowerCase() === ans[i].toLowerCase()){
                 guess[i] = ans[i];
-                score--; 
+                score--;
             }
         }
-             if (score == 0)break;
+             if (score === 0)break;
             alert(`${attempts - c - 1 } guesses left~`);
             console.log(guess.join(" "));
         } 
 
       }
     
-if (score == 0){
+if (score === 0){
   if((attempts - c - 1)>(attempts/2)){
   alert(`Great success u ${ans.toLowerCase()}, the word is indeed "${ans}"
   You have ${attempts - c - 1} guesses remaining, not bad I guess`);
