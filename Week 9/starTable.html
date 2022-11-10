@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Table</title>
+</head>
+<body>
+<table id="star_table">
+</table>
+</body>
+<script>
+    let starTable = document.getElementById("star_table");
+
+    for (let i = 0; i < 40 ; i++) {
+        starTable.innerHTML += `
+        <tr>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>
+            <td><img src="star_off.gif"><td>                                                                                                                                                                                                                                                                                                                                                                                   <td><img src="star_off.gif"><td>
+        </tr>`;
+    }
+    starTable.addEventListener("mouseover", function (e) {e.target.src = "star_on.gif"});
+    starTable.addEventListener("mouseout", function (e) {e.target.src = "star_off.gif"});
+</script>
+</html>

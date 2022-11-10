@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event Listener</title>
+</head>
+<body>
+    <button>Execute</button>
+    <div></div>
+</body>
+<script>
+    let btn = document.getElementsByTagName("button")[0];
+    let event = "click";
+    let i = 0;
+    let handler = function (e){
+        if (i === 0){
+            document.getElementsByTagName("div")[0].innerHTML = "<h1><b>Hi there!</b></h1>";
+            console.log(++i);
+        }
+        else {
+            document.getElementsByTagName("div")[0].innerHTML = "<h1><b>Hi again there!</b></h1>";
+            console.log(--i);
+        }
+        console.log(e.target);
+    };
+    btn.addEventListener(event, handler);
+    // btn.addEventListener("click", function (){document.getElementsByTagName("div")[0].innerHTML="<h1><b>Hi again there!</b></h1>"});
+</script>
+</html>
