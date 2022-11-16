@@ -24,7 +24,7 @@
     let setTransparent = function (){
             target.style.backgroundColor = "transparent";
     }
-    target.addEventListener("keypress",chgBgColor);
-    target.addEventListener("keyup",setTransparent);
+    window.addEventListener("keydown",chgBgColor);
+    window.addEventListener("keyup",setTransparent);
 </script>
 </html>
