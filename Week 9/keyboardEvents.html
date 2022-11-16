@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Events</title>
+</head>
+<body>
+<h1>Press R for a red background.</h1>
+<h1>Press G for a green background.</h1>
+<h1>Press B for a blue background.</h1>
+</body>
+<script>
+    let target = document.body;
+    let chgBgColor = function (e){
+        if(e.key === "r"){
+            target.style.backgroundColor = "red";
+        }else if(e.key === "g"){
+            target.style.backgroundColor = "green";
+        }else if(e.key === "b"){
+            target.style.backgroundColor = "blue";
+        }
+        console.log(e.key);
+    }
+    let setTransparent = function (){
+            target.style.backgroundColor = "transparent";
+    }
+    target.addEventListener("keypress",chgBgColor);
+    target.addEventListener("keyup",setTransparent);
+</script>
+</html>
