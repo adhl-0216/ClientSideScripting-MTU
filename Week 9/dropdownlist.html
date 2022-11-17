@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Le List</title>
+</head>
+<body>
+<h1>Remove Color</h1>
+<label for="leList">Color: </label><select id="leList">
+    <option value="red">red</option>
+    <option value="blue">blue</option>
+    <option value="green">green</option>
+    <option value="yellow">yellow</option>
+</select><br><br>
+<button id="remove">REMOVE</button>
+</body>
+<script>
+    let x = document.querySelector("#leList");
+
+    let btn = document.querySelector("#remove");
+    btn.addEventListener("click",function (e) {
+        let i = x.selectedIndex;
+        x[i].remove();
+    })
+</script>
+</html>

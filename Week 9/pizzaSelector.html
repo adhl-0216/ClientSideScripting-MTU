@@ -5,74 +5,75 @@
     <title>Pizza Selector</title>
 </head>
 <body>
+<h1>Non-authentic Italian Pizza</h1>
+<h3>Select Base Sauce: </h3>
 <form>
-    <table id="pizza">
-        <tr>
-            <td><label for="veg">Vegetarian &euro;10.00</label></td>
-            <td><input id="veg" type="radio" name="menu" value="10"></td>
-        </tr>
-        <tr>
-            <td><label for="meat">Meat Lover &euro;20.00</label></td>
-            <td><input id="meat" type="radio" name="menu" value="20"></td>
-        </tr>
-        <tr>
-            <td><label for="dCheese">Double Cheese &euro;15.00</label></td>
-            <td><input id="dCheese" type="radio" name="menu" value="15"></td>
-        </tr>
-        <tr>
-            <td><label for="hawaiian">Hawaiian &euro;18.00</label></td>
-            <td><input id="hawaiian" type="radio" name="menu" value="18"></td>
-        </tr>
-        <tr>
-            <td><label for="pepperoni">Pepperoni and Cheese &euro;18.00</label></td>
-            <td><input id="pepperoni" type="radio" name="menu" value="18"></td>
-        </tr>
-    </table><br>
+    <div id="radioBtns">
+        <table id="pizza">
+            <tr>
+                <td><label for="veg">Vegetarian &euro;10.00</label></td>
+                <td><input id="veg" type="radio" name="menu" value="10"></td>
+            </tr>
+            <tr>
+                <td><label for="meat">Meat Lover &euro;20.00</label></td>
+                <td><input id="meat" type="radio" name="menu" value="20"></td>
+            </tr>
+            <tr>
+                <td><label for="dCheese">Double Cheese &euro;15.00</label></td>
+                <td><input id="dCheese" type="radio" name="menu" value="15"></td>
+            </tr>
+            <tr>
+                <td><label for="hawaiian">Hawaiian &euro;18.00</label></td>
+                <td><input id="hawaiian" type="radio" name="menu" value="18"></td>
+            </tr>
+            <tr>
+                <td><label for="pepperoni">Pepperoni and Cheese &euro;18.00</label></td>
+                <td><input id="pepperoni" type="radio" name="menu" value="18"></td>
+            </tr>
+        </table>
 
-    <label>Cheese +&euro;0.50
-        <input type="checkbox" value="0.50">
-    </label>
-    <label>Chicken Pepperoni +&euro;0.80
-        <input type="checkbox" value="0.80">
-    </label>
-    <label>Beef Pepperoni +&euro;1.00
-        <input type="checkbox" value="1.00">
-    </label>
-    <label>Basil +&euro;0.40
-        <input type="checkbox" value="0.40">
-    </label>
-    <label>Mushroom +&euro;0.30
-        <input type="checkbox" value="0.30">
-    </label><br><br>
-
-    <label>Total:
-        <input type="text" id="total" readonly value="0.00">
-    </label>&euro;
-
-
+    </div>
+    <br>
+<h3>Select Toppings: </h3>
+    <div id="checkBoxes">
+        <label>Cheese +&euro;0.50
+            <input type="checkbox" value="0.50">
+        </label>
+        <label>Chicken Pepperoni +&euro;0.80
+            <input type="checkbox" value="0.80">
+        </label>
+        <label>Beef Pepperoni +&euro;1.00
+            <input type="checkbox" value="1.00">
+        </label>
+        <label>Basil +&euro;0.40
+            <input type="checkbox" value="0.40">
+        </label>
+        <label>Mushroom +&euro;0.30
+            <input type="checkbox" value="0.30">
+        </label>
+        <br>
+        <br>
+        <br>
+        <label>Total: &euro;
+            <input type="text" id="total" style="border: hidden; font-size: 16px" readonly value="0.00" size="1">
+        </label>
+    </div>
 </form>
 </body>
 <script>
-    let menu = document.querySelectorAll("input[name='menu']");
-    let topping = document.querySelectorAll("input[type='checkbox']");
     let total = document.querySelector("#total");
     let last = 0;
 
-    for (const i of menu) {
-        i.addEventListener("change",function (e) {
-            total.value = (Number(total.value) + Number(e.target.value) - Number(last)).toFixed(2);
-            last = e.target.value;
-        });
-    }
+    document.querySelector("#radioBtns").addEventListener("change",function (e) {
+        total.value = (Number(total.value) + Number(e.target.value) - Number(last)).toFixed(2);
+        last = e.target.value;
+    })
 
-    for (let i = 0; i < topping.length; i++) {
-        topping[i].addEventListener("change",function (e) {
-            if (e.target.checked)
-                total.value = (Number(total.value) + Number(e.target.value)).toFixed(2);
-            else
-                total.value = (Number(total.value) - Number(e.target.value)).toFixed(2);
-        });
-
-    }
+    document.querySelector("#checkBoxes").addEventListener("change",function (e) {
+        if (e.target.checked)
+            total.value = (Number(total.value) + Number(e.target.value)).toFixed(2);
+        else
+            total.value = (Number(total.value) - Number(e.target.value)).toFixed(2);
+    });
 </script>
 </html>
