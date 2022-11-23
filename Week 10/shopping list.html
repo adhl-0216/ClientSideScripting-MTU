@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping List</title>
+</head>
+<body>
+<div id="selections">
+    <label for="bread">Bread $ 2.50</label><input type="checkbox" id="Bread" value="2.50">
+    <label for="milk">Milk $ 2.00</label><input type="checkbox" id="Milk" value="2.00">
+</div>
+    <button>SUBMIT</button>
+<h1>Shopping List</h1>
+<div id="list"></div>
+<div id="new"></div>
+</body>
+<script>
+    let btn = document.querySelector("button");
+    let selections = document.querySelector("#selections");
+    let uncheck = document.querySelectorAll("[type = 'checkbox']");
+    for (let i = 0; i < uncheck.length; i++) {
+        uncheck[i].checked = false;
+    }
+    let div = document.querySelector("#list");
+    let div2 = document.querySelector("#new");
+    let btnSubmitDel = document.createElement("button");
+    let checked;
+    let submitDel = function (e) {
+        let radVal = document.querySelector("[type = 'radio']:checked");
+        if (radVal != null){
+            let outputStr = "You've selected to deliver these items via " + radVal.value + ": \n";
+            for (let i = 0; i < checked.length; i++) {
+                outputStr += "* " + checked[i].id + "\n";
+            }
+            alert(outputStr);
+        }else {
+            alert("You did not select any items.");
+        }
+    }
+    let btnClicked = function (e) {
+        div2.replaceChildren();
+        // selections.removeEventListener("change", checkedBox);
+        let deliveryTypes = ["postage", "parcel"];
+        for (let i = 0; i < deliveryTypes.length; i++) {
+            let radBtn = document.createElement("input");
+            let lblRadBtn = document.createElement("label");
+
+            radBtn.setAttribute('type', 'radio');
+            radBtn.setAttribute('name', 'delivery');
+            radBtn.setAttribute('value', deliveryTypes[i]);
+
+            radBtn.setAttribute('id', deliveryTypes[i]);
+            lblRadBtn.setAttribute("for", deliveryTypes[i]);
+            lblRadBtn.innerHTML = deliveryTypes[i];
+            div2.appendChild(radBtn);
+            div2.appendChild(lblRadBtn);
+        }
+
+        btnSubmitDel.setAttribute('id', 'deliver');
+        btnSubmitDel.innerHTML = "DELIVER";
+        div2.appendChild(btnSubmitDel);
+    }
+    let checkedBox = function (e){
+        div.replaceChildren();
+        checked = document.querySelectorAll("[type='checkbox']:checked");
+        for (let i = 0; i < checked.length; i++) {
+            let p = document.createElement("p");
+            let txt = document.createTextNode(`${checked[i].id} $${checked[i].value}`);
+
+            p.appendChild(txt);
+            div.appendChild(p);
+        }
+    }
+    selections.addEventListener("change", checkedBox, false);
+    btn.addEventListener("click", btnClicked, false);
+    btnSubmitDel.addEventListener("click", submitDel)
+
+</script>
+</html>

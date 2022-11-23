@@ -7,10 +7,10 @@
 <body>
 <h2>Select a Team and a Player.</h2>
 <label for="teams">Team: </label><select id="teams">
-    <option value="red">red</option>
-    <option value="blue">blue</option>
-    <option value="green">green</option>
-    <option value="yellow">yellow</option>
+    <option value="0">CHI</option>
+    <option value="1">GSW</option>
+    <option value="2">BOS</option>
+    <option value="3">LAS</option>
 </select>
 <br>
     <label for="players">Player(s): </label>
@@ -26,17 +26,19 @@
     let players = document.querySelector("#players");
     teams.selectedIndex = -1;
 
-    let bluePlayers = ["S.Curry", "K.Thompson", "A.Wiggins", "D.Green", "K.Looney"];
     let redPlayers = ["D.Rose", "M.Jordan", "S.Pippen", "D.Rodman", "H.Grant"];
+    let bluePlayers = ["S.Curry", "K.Thompson", "A.Wiggins", "D.Green", "K.Looney"];
     let greenPlayers = ["B.Cousy", "P.Pierce", "L.Bird", "K.Garnett", "B.Russell"];
     let yellowPlayers = ["M.Johnson", "K.Bryant", "L.James", "K.A.Jabbar", "Shaq.O'Neal"];
+    let playersArr = {redPlayers, bluePlayers, greenPlayers, yellowPlayers};
 
     teams.addEventListener("change", function (e){
         console.log(e.target.options[teams.selectedIndex]);
         players.options.length = 0;
-        for (let i = 1; i <= 5; i++) {
+
+        for (let i = 1; i <= playersArr[Number(e.target.value)].length; i++) {
             let player = document.createElement("option");
-            player.text = e.target.value + " " + i;
+            player.text = playersArr[Number(e.target.value)][i];
             players.add(player);
         }
     })
