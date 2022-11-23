@@ -10,7 +10,7 @@
     <option value="0">CHI</option>
     <option value="1">GSW</option>
     <option value="2">BOS</option>
-    <option value="3">LAS</option>
+    <option value="3">LAK</option>
 </select>
 <br>
     <label for="players">Player(s): </label>
@@ -26,43 +26,38 @@
     let players = document.querySelector("#players");
     teams.selectedIndex = -1;
 
+    let CHI = ["D.Rose", "M.Jordan", "S.Pippen", "D.Rodman", "H.Grant"];
+    let GSW = ["S.Curry", "K.Thompson", "A.Wiggins", "D.Green", "K.Looney"];
+    let BOS = ["B.Cousy", "P.Pierce", "L.Bird", "K.Garnett", "B.Russell"];
+    let LAK = ["M.Johnson", "K.Bryant", "L.James", "K.A.Jabbar", "Shaq.O'Neal"];
     teams.addEventListener("change", function (e){
-        let idx;
-        idx = e.target.options[teams.selectedIndex].value;
+        let idx = Number(e.target.options.selectedIndex);
+        let playersArr;
         console.log(idx);
         players.options.length = 0;
-        if (idx === 0){
-            alert(0);
-            let playersArr = ["D.Rose", "M.Jordan", "S.Pippen", "D.Rodman", "H.Grant"];
-            for (let i = 0; i < playersArr.length; i++) {
-                let player = document.createElement("option");
-                player.text = playersArr[i];
-                players.add(player);
+        switch (idx) {
+            case 0 : {
+                playersArr = CHI;
+                break;
             }
-        }else if (idx === 1){
-            let playersArr = ["S.Curry", "K.Thompson", "A.Wiggins", "D.Green", "K.Looney"];
-            for (let i = 0; i < playersArr.length; i++) {
-                let player = document.createElement("option");
-                player.text = playersArr[i];
-                players.add(player);
+            case 1 : {
+                playersArr = GSW;
+                break;
             }
-        }else if (idx === 2){
-            let playersArr = ["B.Cousy", "P.Pierce", "L.Bird", "K.Garnett", "B.Russell"];
-            for (let i = 0; i < playersArr.length; i++) {
-                let player = document.createElement("option");
-                player.text = playersArr[i];
-                players.add(player);
+            case 2 : {
+                playersArr = BOS;
+                break;
+            }
+            case 3 : {
+                playersArr = LAK;
+                break;
             }
         }
-        else if (idx === 3){
-            let playersArr = ["M.Johnson", "K.Bryant", "L.James", "K.A.Jabbar", "Shaq.O'Neal"];
-            for (let i = 0; i < playersArr.length; i++) {
-                let player = document.createElement("option");
-                player.text = playersArr[i];
-                players.add(player);
-            }
+        for (let i = 0; i < playersArr.length; i++) {
+            let player = document.createElement("option");
+            player.text = playersArr[i];
+            players.add(player);
         }
-
     })
 </script>
 </html>
