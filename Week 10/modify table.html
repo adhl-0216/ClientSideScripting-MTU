@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Table</title>
+</head>
+<style>
+    table, tr, td {
+       border: solid 1px black;
+    }
+
+    /* this is a _demo_ container. remember the importance of relative and absolute positioning */
+    .tooltip-container {
+        position: relative;
+        display: flex;
+        place-content: center;
+    }
+
+    /* styling of the tooltip display */
+    p#tooltip-text {
+        display: none;
+        position: absolute;
+        top: -60px;
+        z-index: 1;
+        background: #00732c;
+        padding: 8px;
+        font-size: 1rem;
+        color: #fff;
+        border-radius: 2px;
+        animation: fadeIn 0.6s;
+    }
+
+    /* optional styling to add a "wedge" to the tooltip */
+    p#tooltip-text:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+        border: 8px solid transparent;
+        border-top: 8px solid #00732c;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+</style>
+<body>
+<p>Click on the buttons to modify the table below</p>
+<table id="tb1">
+    <tr><td>r0 c0</td><td>r0 c1</td></tr>
+    <tr><td>r1 c0</td><td>r1 c1</td></tr>
+    <tr><td>r2 c0</td><td>r2 c1</td></tr>
+</table>
+<br>
+<button id="top">Create new row at Top</button> <button id="btm">Create new row at Bottom</button> <button id="delTop">Delete Top row</button>
+<br><br>
+<table id="tb2">
+    <tr><td>r0 c0</td><td>r0 c1</td></tr>
+    <tr><td>r1 c0</td><td>r1 c1</td></tr>
+    <tr><td>r2 c0</td><td>r2 c1</td></tr>
+</table>
+<div id="test"></div>
+
+</body>
+<script>
+    let tb1 = document.querySelector("#tb1");
+    let btnAddTop = document.querySelector("#top");
+    let btnAddBtm = document.querySelector("#btm");
+    let btnDelTop = document.querySelector("#delTop");
+    let rowsCreated = 0;
+
+    let addRow = function (e) {
+        let row = document.createElement("tr");
+        for (let i = 0; i < 2; i++) {
+            let cell = row.insertCell();
+            cell.textContent = `r${rowsCreated} c${i}`;
+            if (i === 1) {
+                let delBtn = document.createElement("button");
+                delBtn.innerText = "DEL";
+                delBtn.addEventListener("click",delRow);
+                cell.append(delBtn);
+            }
+        }
+        if (e.target === btnAddTop){
+            tb1.prepend(row);
+        }
+        else if (e.target === btnAddBtm){
+            tb1.append(row);
+        }
+        rowsCreated++;
+    }
+    btnAddTop.addEventListener("click", addRow);
+    btnAddBtm.addEventListener("click", addRow);
+
+    let delRow = function (e) {
+        if (e.target !== btnDelTop) {
+            tb1.removeChild(e.target.parentNode.parentNode);
+        } else {
+            tb1.removeChild(tb1.firstChild);
+        }
+    }
+    btnDelTop.addEventListener("click", delRow);
+
+    //tb2
+    let rows = document.querySelector("#tb2").firstElementChild.firstElementChild;
+    let showTooltip = function (e) {
+        let cell = e.target;
+        cell.setAttribute("title", cell.textContent);
+    }
+        console.log(rows);
+    // for (let i = 0; i < rows.length; i++) {
+    //     // rows[i].addEventListener("mouseover", showTooltip);
+    // }
+</script>
+</html>
