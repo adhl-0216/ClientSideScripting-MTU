@@ -4,28 +4,81 @@
     <meta charset="UTF-8">
     <title>Home Insurance Calculator</title>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="insurance_calculator.js"></script>
-<script>
-
-</script>
+<script async src="insurance_calculator.js"></script>
+<style>
+    .right{
+        text-align: right;
+    }
+    select{
+        width: 150px;
+    }
+    span {
+        color: #ff0000;
+    }
+</style>
 <body>
     <h1>Home Insurance Calculator 9000</h1>
-    <form>
+    <form target="_blank">
         <table>
-            <tr><td><label for="name">Name:</label></td>
+            <tr><td><label for="name">Name</label><span>*</span></td>
                 <td><input type="text" id="name"></td></tr>
-            <tr><td><label for="email">Email:</label></td>
+            <tr><td><label for="email">Email</label><span>*</span></td>
                 <td><input type="text" id="email"></td></tr>
-            <tr><td><label for="no-of-bedrooms">No. of Bedrooms:</label></td>
-                <td><input type="text" id="no-of-bedrooms"></td></tr>
-            <tr><td><label for="years-built">Years Built:</label></td>
-                <td><input type="text" id="years-built"></td></tr>
-            <tr><td><label for="years-claim-free">Years Claim Free:</label></td>
-                <td><input type="text" id="years-claim-free"></td></tr>
-            <tr><td><label for="running-total">Running Total:</label></td>
-                <td><input type="text" id="running-total" readonly></td></tr>
+            <tr><td>Are you an Owner or Tenant?<span>*</span></td>
+                <td class="right"><label for="owner">Owner</label><input type="radio" name="ownership" id="owner"><br>
+                    <label for="tenant">Tenant</label><input type="radio" name="ownership" id="tenant"></td></tr>
+            <tr><td><label for="no-of-bedrooms">No. of Bedrooms</label><span>*</span></td>
+                <td><input type="text" id="no-of-bedrooms" class="numeric"></td></tr>
+            <tr><td>Area<span>*</span></td>
+                <td class="right"><label for="dublin">Dublin</label><input type="radio" name="area" id="dublin"><br>
+                    <label for="outside-dublin">Outside Dublin</label><input type="radio" name="area" id="outside-dublin"></td></tr>
+            <tr><td><label for="property-type">Property Type<span>*</span></label></td>
+                <td class="right">
+                <select id="property-type" >
+                    <option value="75">Bungalow</option>
+                    <option value="100">Country House</option>
+                    <option value="50">Detached</option>
+                    <option value="40">Semi Detached</option>
+                    <option value="30">Terraced</option>
+                    <option value="20">Flat</option>
+                </select>
+            </td></tr>
+            <tr><td><label for="years-built">Years Built:</label><span>*</span></td>
+                <td><input type="text" id="years-built" class="numeric"></td></tr>
+            <tr><td><label for="cover-type">Cover Type</label></td>
+                <td class="right">
+                    <select id="cover-type" >
+                        <option value="50">Owner Occupied</option>
+                        <option value="60">Holiday</option>
+                        <option value="70">Rental</option>
+                    </select>
+                </td></tr>
+            <tr><td><label for="contents-cover">Contents Cover<span>*</span></label></td>
+                <td class="right">
+                    <select id="contents-cover" >
+                        <option value="1">0&euro; - 5,000&euro;</option>
+                        <option value="2">5,001&euro; - 10,000&euro;</option>
+                        <option value="3">10,001&euro; - 15,000&euro;</option>
+                        <option value="4">15,001&euro; - 20,000&euro;</option>
+                        <option value="5">20,001&euro; - 25,000&euro;</option>
+                    </select>
+                </td></tr>
+            <tr><td><label for="building-cover">Building Cover<span>*</span></label></td>
+                <td class="right">
+                    <select id="building-cover">
+                        <option value="1">0&euro; - 100,000&euro;</option>
+                        <option value="2">100,001&euro; - 200,000&euro;</option>
+                        <option value="3">200,001&euro; - 300,000&euro;</option>
+                        <option value="4">300,001&euro; - 400,000&euro;</option>
+                        <option value="5">400,001&euro; - 500,000&euro;</option>
+                    </select>
+                </td></tr>
+            <tr><td><label for="years-claim-free">Years Claim Free</label><span>*</span></td>
+                <td><input type="text" id="years-claim-free" class="numeric"></td></tr>
+            <tr><td><label for="running-total"><strong> Running Total:</strong></label></td>
+                <td><input type="text" readonly id="running-total" class="right" value="0.00&euro;"></td></tr>
         </table>
     </form>
+        <button>Calculate</button>
 </body>
 </html>
