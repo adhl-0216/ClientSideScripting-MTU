@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage</title>
+</head>
+<body>
+<form>
+    <label>Name:
+        <input type="text">
+    </label><br>
+    <label>Email:
+        <input type="text">
+    </label><br>
+    <label>Mobile Number:
+        <input type="text">
+    </label>
+</form>
+<button id="save">Save</button>
+<button id="get">Get</button>
+
+</body>
+<script>
+    const allFields = document.querySelectorAll("input");
+    const btnSave = document.querySelector("#save");
+    const btnGet = document.querySelector("#get");
+
+    if(localStorage){
+        let saveLocal = function (e){
+            for (let i = 0; i < allFields.length; i++) {
+                localStorage.setItem(JSON.stringify(i),allFields[i].value);
+            }
+        }
+        let getLocal = function (e){
+            let output = "";
+            for (let i = 0; i < allFields.length; i++) {
+                output += localStorage.getItem(JSON.stringify(i)) + "\n";
+            }
+            alert(output);
+        }
+        btnSave.addEventListener("click", saveLocal, false);
+        btnGet.addEventListener("click", getLocal, false);
+    }else {
+        alert("Sorry your browser does not support local storage")
+    }
+</script>
+</html>

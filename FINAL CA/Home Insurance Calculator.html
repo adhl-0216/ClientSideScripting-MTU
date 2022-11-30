@@ -12,27 +12,48 @@
     select{
         width: 150px;
     }
-    span {
+    .tip {
         color: #ff0000;
+    }
+    #running-total {
+        border: transparent;
+    }
+    .tooltip {
+        position: absolute;
+        white-space: nowrap;
+        display: none;
+        background: #ffffff;
+        border: 1px solid black;
+        padding: 5px;
+        z-index: 1000;
+        color: black;
+    }
+    .tip:hover .tooltip {
+        display: block;
     }
 </style>
 <body>
     <h1>Home Insurance Calculator 9000</h1>
     <form target="_blank">
         <table>
-            <tr><td><label for="name">Name</label><span>*</span></td>
+            <tr><td><label for="name">Name<span class="tip">*<span class="tooltip">Please enter your legal name.</span></span></label></td>
                 <td><input type="text" id="name"></td></tr>
-            <tr><td><label for="email">Email</label><span>*</span></td>
+
+            <tr><td><label for="email">Email<span class="tip">*<span class="tooltip">Please enter your valid email.</span></span></label></td>
                 <td><input type="text" id="email"></td></tr>
-            <tr><td>Are you an Owner or Tenant?<span>*</span></td>
+
+            <tr><td>Are you an Owner or Tenant?<span class="tip">*</span></td>
                 <td class="right"><label for="owner">Owner</label><input type="radio" name="ownership" id="owner"><br>
                     <label for="tenant">Tenant</label><input type="radio" name="ownership" id="tenant"></td></tr>
-            <tr><td><label for="no-of-bedrooms">No. of Bedrooms</label><span>*</span></td>
+
+            <tr><td><label for="no-of-bedrooms">No. of Bedrooms</label><span class="tip">*</span></td>
                 <td><input type="text" id="no-of-bedrooms" class="numeric"></td></tr>
-            <tr><td>Area<span>*</span></td>
+
+            <tr><td>Area<span class="tip">*</span></td>
                 <td class="right"><label for="dublin">Dublin</label><input type="radio" name="area" id="dublin"><br>
                     <label for="outside-dublin">Outside Dublin</label><input type="radio" name="area" id="outside-dublin"></td></tr>
-            <tr><td><label for="property-type">Property Type<span>*</span></label></td>
+
+            <tr><td><label for="property-type">Property Type<span class="tip">*</span></label></td>
                 <td class="right">
                 <select id="property-type" >
                     <option value="75">Bungalow</option>
@@ -43,9 +64,11 @@
                     <option value="20">Flat</option>
                 </select>
             </td></tr>
-            <tr><td><label for="years-built">Years Built:</label><span>*</span></td>
+
+            <tr><td><label for="years-built">Years Built<span class="tip">*</span></label></td>
                 <td><input type="text" id="years-built" class="numeric"></td></tr>
-            <tr><td><label for="cover-type">Cover Type</label></td>
+
+            <tr><td><label for="cover-type">Cover Type<span class="tip">*</span></label></td>
                 <td class="right">
                     <select id="cover-type" >
                         <option value="50">Owner Occupied</option>
@@ -53,7 +76,8 @@
                         <option value="70">Rental</option>
                     </select>
                 </td></tr>
-            <tr><td><label for="contents-cover">Contents Cover<span>*</span></label></td>
+
+            <tr><td><label for="contents-cover">Contents Cover<span class="tip">*</span></label></td>
                 <td class="right">
                     <select id="contents-cover" >
                         <option value="1">0&euro; - 5,000&euro;</option>
@@ -63,7 +87,8 @@
                         <option value="5">20,001&euro; - 25,000&euro;</option>
                     </select>
                 </td></tr>
-            <tr><td><label for="building-cover">Building Cover<span>*</span></label></td>
+
+            <tr><td><label for="building-cover">Building Cover<span class="tip">*</span></label></td>
                 <td class="right">
                     <select id="building-cover">
                         <option value="1">0&euro; - 100,000&euro;</option>
@@ -73,8 +98,10 @@
                         <option value="5">400,001&euro; - 500,000&euro;</option>
                     </select>
                 </td></tr>
-            <tr><td><label for="years-claim-free">Years Claim Free</label><span>*</span></td>
+
+            <tr><td><label for="years-claim-free">Years Claim Free<span class="tip">*</span></label></td>
                 <td><input type="text" id="years-claim-free" class="numeric"></td></tr>
+
             <tr><td><label for="running-total"><strong> Running Total:</strong></label></td>
                 <td><input type="text" readonly id="running-total" class="right" value="0.00&euro;"></td></tr>
         </table>
