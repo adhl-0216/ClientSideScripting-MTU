@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jackhammer Animation</title>
+</head>
+<body>
+<img src="jackhammer0.gif" alt="Jackhammer">
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+</body>
+<script>
+    const btnStart = document.querySelector("#start");
+    const btnStop = document.querySelector("#stop");
+    let animInterval;
+    let currFrame = 0;
+    let frames = [
+        "jackhammer0.gif",
+        "jackhammer1.gif",
+        "jackhammer2.gif",
+        "jackhammer3.gif",
+        "jackhammer4.gif",
+        "jackhammer5.gif",
+        "jackhammer6.gif",
+        "jackhammer7.gif",
+        "jackhammer8.gif",
+        "jackhammer9.gif",
+        "jackhammer10.gif",
+    ];
+    let playFrames = function (){
+        if (currFrame === frames.length - 1)
+            currFrame = 0;
+        else
+            document.images[0].src = frames[++currFrame];
+    }
+    let startAnim = function (e) {
+        if (animInterval != null)
+            clearInterval(animInterval);
+        animInterval = setInterval(playFrames,100)
+    }
+    let stopAnim = function (e) {
+        clearInterval(animInterval);
+    }
+    btnStart.addEventListener("click", startAnim);
+    btnStop.addEventListener("click", stopAnim);
+</script>
+</html>
