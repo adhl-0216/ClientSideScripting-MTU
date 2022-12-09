@@ -4,6 +4,11 @@ for (let i = 0; i < allListBox.length; i++) {
     allListBox[i].selectedIndex = -1;
 }
 
+/*setTimeout(function (){
+    window.alert("Webpage Timed Out.");
+    window.location.reload();
+}, 24000);*/
+
 const allFields = document.querySelectorAll("select, input:not([id='running-total']):not([id='submit'])");
 for (const field of allFields) {
     field.required = true;
@@ -37,6 +42,7 @@ document.querySelector("form").addEventListener("submit", function (e){
         }
     }
     alert("submit!");
+    window.location.assign("Price Analysis.html");
 });
 
 
