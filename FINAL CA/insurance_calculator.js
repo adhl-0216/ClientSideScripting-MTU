@@ -1,49 +1,77 @@
+const form = document.forms[0];
+// setTimeout(function (){
+//     window.alert("Webpage Timed Out.");
+//     window.location.reload();
+// }, 24000);
+// form.reset();
 
-const allListBox = document.querySelectorAll("select");
-for (let i = 0; i < allListBox.length; i++) {
-    allListBox[i].selectedIndex = -1;
-}
+const runningTotal = document.getElementById("running-total");
 
-/*setTimeout(function (){
-    window.alert("Webpage Timed Out.");
-    window.location.reload();
-}, 24000);*/
+const txtEmail = document.querySelector("#email");
+let valid = false;
+let validateEmail = function () {
+    const mailFormat = /(?:[a-z\d!#$%&'*+=?^_`{|}~-]+(?:\.[a-z\d!#$%&'*+=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z\d](?:[a-z\d-]*[a-z\d])?|\[(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?|[a-z\d-]*[a-z\d]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)])/;
+    if (!txtEmail.value.match(mailFormat)) {
+        alert("Invalid Email Entered!");
+        txtEmail.focus();
+        return false;
+    }
+    return true;
+};
+txtEmail.addEventListener("change", validateEmail);
 
-const allFields = document.querySelectorAll("select, input:not([id='running-total']):not([id='submit'])");
-for (const field of allFields) {
-    field.required = true;
-}
+const txtBoxes = document.querySelectorAll("input[pattern]");
+const radioButtons = document.querySelectorAll("input[type='radio']");
+const selectBoxes = document.querySelectorAll("select");
 
-document.querySelector("form").addEventListener("submit", function (e){
-    e.preventDefault();
-    for (const field of allFields) {
-        if (field.id === "email"){
-            const mailFormat = /(?:[a-z\d!#$%&'*+=?^_`{|}~-]+(?:\.[a-z\d!#$%&'*+=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z\d](?:[a-z\d-]*[a-z\d])?|\[(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?|[a-z\d-]*[a-z\d]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)])/;
-            console.log(field.value);
-            if (field.value.match(mailFormat)){
-                console.log("valid email");
-            }else {
-                console.log("no match");
-                field.focus();
-            }
-        }else if(field.className === "numeric") {
-            if (isNaN(Number(field.value)) || field.value.indexOf('.') !== -1) {
-                alert("Please enter whole numbers only!");
-                field.focus();
-                field.value = "";
-            }
-        }
+console.log(selectBoxes);
 
-        if (localStorage) {
-            console.log(field.id, field.value);
-            localStorage.setItem(field.id, field.value);
-        }else {
-            alert("Sorry, your browser does not support local storage unfortunately...")
+let updateTotal = function () {
+    let init = 0;
+
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked === true){
+            init += Number(radioButton.value);
         }
     }
-    alert("submit!");
-    window.location.assign("Price Analysis.html");
-});
+
+    for (const txtBox of txtBoxes) {
+        let price;
+        if (txtBox.id === "years-claim-free") price = Number(txtBox.value)*-10;
+        else price = Number(txtBox.value)*10;
+        init += price;
+    }
+
+    for (const selectBox of selectBoxes) {
+        if (selectBox.id === "contents-cover") {
+            init += Number(selectBox.value*10);
+            continue;
+        }
+
+        if (selectBox.id === "building-cover") {
+            init += Number(selectBox.value*20);
+            continue;
+        }
+
+        init += Number(selectBox.value);
+    }
+
+    runningTotal.value = '\u20AC ' + Number(init).toFixed(2);
+}
+
+form.addEventListener("focusout", updateTotal);
+form.addEventListener("change", updateTotal);
+
+let calculate = function (e){
+    e.preventDefault()
+    if(validateEmail()) valid = true;
+    if (valid){
+        form.submit();
+    }
+};
+
+document.querySelector("#calculate").addEventListener("submit", calculate);
+
 
 
 
