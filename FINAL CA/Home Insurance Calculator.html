@@ -9,15 +9,19 @@
     .right{
         text-align: right;
     }
+
     select{
         width: 150px;
     }
+
     .tip {
         color: #ff0000;
     }
+
     #running-total {
         border: transparent;
     }
+
     .tooltip {
         position: absolute;
         white-space: nowrap;
@@ -28,20 +32,27 @@
         z-index: 1000;
         color: black;
     }
+
     .tip:hover .tooltip {
         display: block;
     }
+
     input[id = "running-total"] {
         font: 15px bold;
         color: black;
     }
+
+    :focus {
+        outline: none;
+        box-shadow: 0 0 0 1px hsla(220, 100%, 50%, 80%);
+    }
 </style>
 <body>
     <h1>Home Insurance Calculator</h1>
-    <form action="Price%20Analysis.html" target="_blank">
+    <form action="Price%20Analysis.html" target="_blank" autocomplete="off">
         <table>
             <tr><td><label for="name">Name<span class="tip">*<span class="tooltip">Please enter your legal name.</span></span></label></td>
-                <td><input type="text" id="name" name="name" required></td></tr>
+                <td><input type="text" id="name" name="name" pattern="[A-Za-z]*" title="English letters only" required></td></tr>
 
             <tr><td><label for="email">Email<span class="tip">*<span class="tooltip">Please enter your valid email.</span></span></label></td>
                 <td><input type="text" id="email" name="email" required></td></tr>
@@ -53,7 +64,7 @@
                 </td></tr>
 
             <tr><td><label for="no-of-bedrooms">No. of Bedrooms</label><span class="tip">*<span class="tooltip">Please enter the number of bedrooms in digits.</span></span></td>
-                <td><input type="text" id="no-of-bedrooms" name="no-of-bedrooms" pattern="[0-9]*" title="Whole Numbers Only" required></td></tr>
+                <td><input type="text" id="no-of-bedrooms" name="no-of-bedrooms" pattern="[0-9]*" title="Whole numbers only" required></td></tr>
 
             <tr><td>Area<span class="tip">*<span class="tooltip">Please choose the option which applies to you.</span></span></td>
                 <td class="right">
@@ -75,7 +86,7 @@
             </td></tr>
 
             <tr><td><label for="years-built">Years Built<span class="tip">*<span class="tooltip">Please enter the number of years since the construction of the property.</span></span></label></td>
-                <td><input type="text" id="years-built" name="years-built" pattern="[0-9]*" title="Whole Numbers Only" required></td></tr>
+                <td><input type="text" id="years-built" name="years-built" pattern="[0-9]*" title="Whole numbers only" required></td></tr>
 
             <tr><td><label for="cover-type">Cover Type<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label></td>
                 <td class="right">
@@ -112,7 +123,7 @@
                 </td></tr>
 
             <tr><td><label for="years-claim-free">Years Claim Free<span class="tip">*<span class="tooltip">Please enter the years claim free of the property.</span></span></label></td>
-                <td><input type="text" id="years-claim-free" name="years-claim-free" pattern="[0-9]*" title="Whole Numbers Only" required></td></tr>
+                <td><input type="text" id="years-claim-free" name="years-claim-free" pattern="[0-9]*" title="Whole numbers only" required></td></tr>
 
             <tr><td><label for="running-total"><b>Running Total:</b></label></td>
                 <td><input type="text" readonly disabled id="running-total" name="running-total" class="right" value="&euro; 0.00"></td></tr>
