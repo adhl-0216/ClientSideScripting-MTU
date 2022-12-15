@@ -1,9 +1,23 @@
 const form = document.forms[0];
-// setTimeout(function (){
-//     window.alert("Webpage Timed Out.");
-//     window.location.reload();
-// }, 24000);
-// form.reset();
+let timer = null;
+(function (min) {
+    let minLeft = Number(min)-1;
+    let secLeft = 60;
+    timer = setInterval(function (){
+        secLeft -=1;
+        if (secLeft < 10) secLeft = "0"+secLeft;
+        if (Number(secLeft) === 0){
+            minLeft-=1;
+            if (minLeft < 0) {
+                alert("Webpage Timed Out!");
+                window.location.reload();
+            }
+            secLeft = 60;
+        }
+        document.getElementById("timeout").innerText = minLeft.toString() + ":" + secLeft.toString();
+    },1000);
+})(4);
+
 
 const runningTotal = document.getElementById("running-total");
 
@@ -72,6 +86,7 @@ let submitForm = function (e){
     for (let i = 0; i < form.length; i++) {
         form[i].disabled = true;
     }
+    clearInterval(timer);
 };
 
 form.addEventListener("submit", submitForm);

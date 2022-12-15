@@ -3,25 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Insurance Calculator</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <script async src="insurance_calculator.js"></script>
 <style>
-    .right{
-        text-align: right;
-    }
-
-    select{
-        width: 150px;
-    }
-
     .tip {
         color: #ff0000;
     }
-
-    #running-total {
-        border: transparent;
-    }
-
     .tooltip {
         position: absolute;
         white-space: nowrap;
@@ -32,7 +20,6 @@
         z-index: 1000;
         color: black;
     }
-
     .tip:hover .tooltip {
         display: block;
     }
@@ -46,36 +33,66 @@
         outline: none;
         box-shadow: 0 0 0 1px hsla(220, 100%, 50%, 80%);
     }
+
+    h3 {
+        color: white;
+    }
 </style>
 <body>
     <h1>Home Insurance Calculator</h1>
-    <form action="Price%20Analysis.html" target="_blank" autocomplete="off">
-        <table>
-            <tr><td><label for="name">Name<span class="tip">*<span class="tooltip">Please enter your legal name.</span></span></label></td>
-                <td><input type="text" id="name" name="name" pattern="[A-Za-z]*" title="English letters only" required></td></tr>
+    <h3>Webpage times out in <span id="timeout">0:00</span></h3>
+    <div>
+    <form class="form" action="Price%20Analysis.html" target="_blank" autocomplete="off">
+        <p class="field">
+            <label for="name" class="label">Name<span class="tip">*<span class="tooltip">Please enter your legal name.</span></span></label>
+            <input class="text-input" type="text" id="name" name="name" pattern="[A-Za-z]*" title="English letters only" required>
+        </p>
 
-            <tr><td><label for="email">Email<span class="tip">*<span class="tooltip">Please enter your valid email.</span></span></label></td>
-                <td><input type="text" id="email" name="email" required></td></tr>
+        <p class="field">
+            <label for="email" class="label">Email<span class="tip">*<span class="tooltip">Please enter your valid email.</span></span></label>
+            <input  class="text-input" type="text" id="email" name="email" required>
+        </p>
 
-            <tr><td>Are you an Owner or Tenant?<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></td>
-                <td class="right">
-                    <label for="owner">Owner</label><input type="radio" id="owner" name="ownership" value="100" required><br>
-                    <label for="tenant">Tenant</label><input type="radio" id="tenant" name="ownership" value="50" required>
-                </td></tr>
+        <div class="field half">
+            <label class="label">Are you an Owner or Tenant?<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label>
+            <ul class='options'>
+                <li class='option'>
+                    <input type="radio" id="owner" name="ownership" value="100" class="option-input" required>
+                    <label for="owner" class="option-label">Owner</label>
+                </li>
+                <li class='option'>
+                    <input type="radio" id="tenant" name="ownership" value="50" class="option-input" required>
+                    <label for="tenant" class="option-label">Tenant</label>
+                </li>
+            </ul>
+        </div>
 
-            <tr><td><label for="no-of-bedrooms">No. of Bedrooms</label><span class="tip">*<span class="tooltip">Please enter the number of bedrooms in digits.</span></span></td>
-                <td><input type="text" id="no-of-bedrooms" name="no-of-bedrooms" pattern="[0-9]*" title="Whole numbers only" required></td></tr>
+        <p class="field half">
+            <label for="no-of-bedrooms" class="label">No. of Bedrooms<span class="tip">*<span class="tooltip">Please enter the number of bedrooms in digits.</span></span></label>
+                <input class="text-input" type="number" value="0" step="1" min="0" id="no-of-bedrooms" name="no-of-bedrooms" pattern="[0-9]*" title="Whole numbers only" required>
+        </p>
 
-            <tr><td>Area<span class="tip">*<span class="tooltip">Please choose the option which applies to you.</span></span></td>
-                <td class="right">
-                    <label for="dublin">Dublin</label><input type="radio" name="area" id="dublin" value="100"><br>
-                    <label for="outside-dublin">Outside Dublin</label><input type="radio" name="area" id="outside-dublin" value="50" required>
-                </td></tr>
+        <div class="field half">
+            <label class="label">Area<span class="tip">*<span class="tooltip">Please choose the option which applies to you.</span></span></label>
+            <ul class="options">
+                <li class="option">
+                    <input type="radio" name="area" id="dublin" value="100" class="option-input" required>
+                    <label for="dublin" class="option-label">Dublin</label>
+                </li>
+                <li class="option">
+                    <input type="radio" name="area" id="outside-dublin" value="50" class="option-input" required>
+                    <label for="outside-dublin" class="option-label">Outside Dublin</label>
+                </li>
+            </ul>
 
-            <tr><td><label for="property-type">Property Type<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label></td>
-                <td class="right">
-                <select id="property-type" name="property-type" required>
-                    <option value="" selected disabled hidden>Choose here</option>
+        </div>
+
+
+        <p class="field half">
+            <label for="property-type" class="label">Property Type<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label>
+
+                <select class="select" id="property-type" name="property-type" required>
+                    <option value="" selected disabled hidden></option>
                     <option value="75">Bungalow</option>
                     <option value="100">Country House</option>
                     <option value="50">Detached</option>
@@ -83,52 +100,62 @@
                     <option value="30">Terraced</option>
                     <option value="20">Flat</option>
                 </select>
-            </td></tr>
+        </p>
 
-            <tr><td><label for="years-built">Years Built<span class="tip">*<span class="tooltip">Please enter the number of years since the construction of the property.</span></span></label></td>
-                <td><input type="text" id="years-built" name="years-built" pattern="[0-9]*" title="Whole numbers only" required></td></tr>
 
-            <tr><td><label for="cover-type">Cover Type<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label></td>
-                <td class="right">
-                    <select id="cover-type" name="cover-type" required>
-                        <option value="" selected disabled hidden>Choose here</option>
+        <p class="field half">
+            <label for="years-built" class="label">Years Built<span class="tip">*<span class="tooltip">Please enter the number of years since the construction of the property.</span></span></label>
+            <input class="text-input" type="number" value="0" step="1" min="0" id="years-built" name="years-built" pattern="[0-9]*" title="Whole numbers only" required>
+        </p>
+
+        <p class="field half">
+            <label for="cover-type" class="label">Cover Type<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label>
+
+                    <select class="select" id="cover-type" name="cover-type" required>
+                        <option value="" selected disabled hidden></option>
                         <option value="50">Owner Occupied</option>
                         <option value="60">Holiday</option>
                         <option value="70">Rental</option>
                     </select>
-                </td></tr>
-
-            <tr><td><label for="contents-cover">Contents Cover<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label></td>
-                <td class="right">
-                    <select id="contents-cover" name="contents-cover" required>
-                        <option value="" selected disabled hidden>Choose here</option>
+        </p>
+        <p class="field">
+            <label for="contents-cover" class="label">Contents Cover<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label>
+                    <select class="select" id="contents-cover" name="contents-cover" required>
+                        <option value="" selected disabled hidden></option>
                         <option value="1">&euro; 0 - &euro; 5,000</option>
                         <option value="2">&euro; 5,001 - &euro; 10,000</option>
                         <option value="3">&euro; 10,001 - &euro; 15,000</option>
                         <option value="4">&euro; 15,001 - &euro; 20,000</option>
                         <option value="5">&euro; 20,001 - &euro; 25,000</option>
                     </select>
-                </td></tr>
+        </p>
 
-            <tr><td><label for="building-cover">Building Cover<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label></td>
-                <td class="right">
-                    <select id="building-cover" name="building-cover" required>
-                        <option value="" selected disabled hidden>Choose here</option>
+        <p class="field">
+            <label for="building-cover" class="label">Building Cover<span class="tip">*<span class="tooltip">Please select the option which applies to you.</span></span></label>
+
+                    <select class="select" id="building-cover" name="building-cover" required>
+                        <option value="" selected disabled hidden></option>
                         <option value="1">&euro; 0 - &euro; 100,000</option>
                         <option value="2">&euro; 100,001 - &euro; 200,000</option>
                         <option value="3">&euro; 200,001 - &euro; 300,000</option>
                         <option value="4">&euro; 300,001 - &euro; 400,000</option>
                         <option value="5">&euro; 400,001 - &euro; 500,000</option>
                     </select>
-                </td></tr>
+        </p>
 
-            <tr><td><label for="years-claim-free">Years Claim Free<span class="tip">*<span class="tooltip">Please enter the years claim free of the property.</span></span></label></td>
-                <td><input type="text" id="years-claim-free" name="years-claim-free" pattern="[0-9]*" title="Whole numbers only" required></td></tr>
+        <p class="field half">
+            <label for="years-claim-free" class="label">Years Claim Free<span class="tip">*<span class="tooltip">Please enter the years claim free of the property.</span></span></label>
+            <input class="text-input" type="number" value="0" step="1" min="0" id="years-claim-free" name="years-claim-free" pattern="[0-9]*" title="Whole numbers only" required>
+        </p>
 
-            <tr><td><label for="running-total"><b>Running Total:</b></label></td>
-                <td><input type="text" readonly disabled id="running-total" name="running-total" class="right" value="&euro; 0.00"></td></tr>
-        </table>
-        <input type="submit" value="Calculate" id="calculate">
+        <p class="field">
+            <label for="running-total" class="label"><b>Running Total:</b></label>
+            <input class="text-input" type="text" readonly id="running-total" name="total"  value="&euro; 0.00">
+        </p>
+        <p>
+        <input class="button" type="submit" value="Calculate" id="calculate">
+        </p>
     </form>
+    </div>
 </body>
 </html>
