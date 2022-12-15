@@ -9,11 +9,19 @@ body {
 @media screen and (min-width: 40em) {
     body {
         font-size: 1.25em;
+        background-image:url('logo.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 }
 
 h1 {
     color: white;
+    border-width: 5px;
+    border-style: solid double;
+    border-color: white;
+    text-align: center;
 }
 
 .form .button, .form .message, .customSelect, .form .select, .form .textarea, .form .text-input, .form .option-input + label, .form .checkbox-input + label, .form .label {
